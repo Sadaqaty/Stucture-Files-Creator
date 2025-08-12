@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File Structure Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>File Structure Generator</h1>
+      <form id="fileStructureForm">
+        <label for="fileStructureInput"
+          >Enter File Structure (use '/' for folders, maintain indentation for
+          structure):</label
+        >
+        <textarea
+          id="fileStructureInput"
+          rows="15"
+          placeholder="my-large-project/
+          ├── src/
+          │   ├── components/
+          │   │   ├── ComponentA.js
+          │   │   ├── ComponentB.js
+          │   ├── utils/
+          │   │   ├── utilityA.js
+          │   │   ├── utilityB.js
+          │   ├── services/
+          │   │   ├── serviceA.js
+          │   │   ├── serviceB.js
+          ├── tests/
+          │   ├── ComponentA.test.js
+          │   ├── ComponentB.test.js
+          ├── config/
+          │   ├── webpack.config.js
+          │   ├── babel.config.js
+          ├── scripts/
+          │   ├── build.js
+          │   ├── start.js
+          ├── public/
+          │   ├── index.html
+          │   ├── favicon.ico
+          ├── .gitignore
+          ├── README.md
+          ├── package.json
+          ├── package-lock.json
+          └── LICENSE
+          "
+        ></textarea>
+        <button type="submit">Generate Files</button>
+      </form>
+      <div id="downloadLinkContainer" style="display: none">
+        <a id="downloadLink" href="#" download="file_structure.zip"
+          >Download File Structure</a
+        >
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

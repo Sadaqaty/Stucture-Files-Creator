@@ -1,0 +1,41 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "script tour",
+  "steps": [
+    {
+      "file": "script.js",
+      "description": "Show the download link",
+      "line": 20
+    },
+    {
+      "file": "script.js",
+      "description": "Adjust the stack based on the level",
+      "line": 51
+    },
+    {
+      "file": "script.js",
+      "description": "Directory",
+      "line": 59
+    },
+    {
+      "file": "script.js",
+      "description": "File",
+      "line": 64
+    },
+    {
+      "file": "script.js",
+      "description": "Create an empty file",
+      "line": 79
+    },
+    {
+      "file": "script.js",
+      "description": "Create a new folder",
+      "line": 81
+    },
+    {
+      "file": "script.js",
+      "description": "Recursively add files to the new folder",
+      "line": 82
+    }
+  ]
+}
