@@ -52,3 +52,41 @@ button:hover {
   margin-top: 20px;
   text-align: center;
 }
+
+#structurePreview {
+  background: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 12px;
+  margin-bottom: 16px;
+  min-height: 60px;
+  font-family: monospace;
+  font-size: 15px;
+  transition: background 0.2s;
+}
+
+.folder-icon {
+  color: #f7b731;
+  margin-right: 4px;
+}
+
+.file-icon {
+  color: #4b7bec;
+  margin-right: 4px;
+}
+
+#feedback {
+  color: #d35400;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+#resetBtn {
+  margin-top: 10px;
+  background-color: #28a745;
+}
+
+#resetBtn:hover {
+  background-color: #218838;
+}

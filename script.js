@@ -1,10 +1,46 @@
+document.getElementById("fileStructureInput").addEventListener("input", (event) => {
+  const input = event.target.value.trim();
+  const preview = document.getElementById("structurePreview");
+  if (!input) {
+    preview.innerHTML = "<em>Preview will appear here...</em>";
+    return;
+  }
+  const lines = input.split("\n").map((line) => line.trim()).filter((line) => line.length > 0);
+  const fileStructure = parseFileStructure(lines);
+  preview.innerHTML = renderPreview(fileStructure);
+});
+
+function renderPreview(structure, indent = "") {
+  let html = "<ul>";
+  for (const key in structure) {
+    if (structure[key] === null) {
+      html += `<li><span class="file-icon">📄</span> ${key}</li>`;
+    } else {
+      html += `<li><span class="folder-icon">📁</span> <strong>${key}</strong>${renderPreview(structure[key], indent + "&nbsp;&nbsp;")}</li>`;
+    }
+  }
+  html += "</ul>";
+  return html;
+}
+
+document.getElementById("resetBtn").addEventListener("click", () => {
+  document.getElementById("fileStructureForm").style.display = "flex";
+  document.getElementById("downloadLinkContainer").style.display = "none";
+  document.getElementById("fileStructureInput").value = "";
+  document.getElementById("structurePreview").innerHTML = "<em>Preview will appear here...</em>";
+  document.getElementById("feedback").textContent = "";
+});
+
 document
   .getElementById("fileStructureForm")
   .addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const input = document.getElementById("fileStructureInput").value.trim();
-    if (!input) return;
+    if (!input) {
+      document.getElementById("feedback").textContent = "Please enter a structure!";
+      return;
+    }
 
     const lines = input
       .split("\n")
@@ -17,10 +53,12 @@ document
       const url = URL.createObjectURL(zipBlob);
       const downloadLink = document.getElementById("downloadLink");
       downloadLink.href = url;
-      downloadLink.style.display = "block"; // Show the download link
-      document.getElementById("downloadLinkContainer").style.display = "block"; // Ensure container is visible
-      document.getElementById("fileStructureForm").style.display = "none"; // Hide form
+      downloadLink.style.display = "block";
+      document.getElementById("downloadLinkContainer").style.display = "block";
+      document.getElementById("fileStructureForm").style.display = "none";
+      document.getElementById("feedback").textContent = "ZIP file created successfully!";
     } catch (error) {
+      document.getElementById("feedback").textContent = "Error generating ZIP file!";
       console.error("Error generating ZIP file:", error);
     }
   });
